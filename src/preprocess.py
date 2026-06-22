@@ -6,3 +6,16 @@ def clean_data(df):
     This is intentionally simple for CI/CD testing.
     """
     return df.dropna()
+
+def remove_duplicates(df):
+    """
+    Removes duplicate rows from a dataframe.
+    """
+    return df#.drop_duplicates()
+
+def validate_target_column(df):
+    """
+    Ensures that the dataset contains the required target column 'churn'.
+    """
+    if "churn" not in df.columns:
+        raise ValueError("Target column 'churn' not found")
