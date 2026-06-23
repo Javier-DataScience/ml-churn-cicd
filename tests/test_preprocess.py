@@ -3,6 +3,9 @@
 import pandas as pd
 from src.preprocess import clean_data
 import pytest
+from src.preprocess import remove_duplicates
+from src.preprocess import validate_target_column
+
 
 
 def test_clean_data_removes_nans():
@@ -21,9 +24,7 @@ def test_clean_data_removes_nans():
     
     
 def test_remove_duplicates():
-    import pandas as pd
-    from src.preprocess import remove_duplicates
-
+    
     df = pd.DataFrame({
         "customer_id": [1, 1, 2],
         "age": [25, 25, 30]
@@ -34,9 +35,6 @@ def test_remove_duplicates():
     assert len(result) == 2
     assert result.duplicated().sum() == 0
     
-import pandas as pd
-from src.preprocess import validate_target_column
-
 
 def test_validate_target_column_passes():
     df = pd.DataFrame({
