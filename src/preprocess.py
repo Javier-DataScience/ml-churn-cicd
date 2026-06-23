@@ -11,7 +11,7 @@ def remove_duplicates(df):
     """
     Removes duplicate rows from a dataframe.
     """
-    return df#.drop_duplicates()
+    return df.drop_duplicates()
 
 def validate_target_column(df):
     """
